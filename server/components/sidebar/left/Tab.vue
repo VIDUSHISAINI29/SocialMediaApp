@@ -1,5 +1,6 @@
 <script setup>
-const { defaultTransition } = useTailwindConfig()
+import UseTailwindConfig from '~/server/composables/UseTailwindConfig.js';
+const { defaultTransition } = UseTailwindConfig();
 const props = defineProps({
     active:{
         type: Boolean,
@@ -14,11 +15,11 @@ const textClasses = computed(() => props.active ? 'font-semibold' : 'font-normal
 
 <nuxt-link to="#" :class="defaultTransition" class="flex items-center p-3 text-black rounded-full w-min hover:bg-gray-200 dark:hover:bg-dim-200 dark:text-white">
 
-    <div class="w-6 h-6 bg-black text-dark">
-            <slot name="icon"></slot>
+    <div class="w-6 h-6  text-dark">
+            <slot name="icon"/>
         </div>
         <div class="hidden ml-4 text-xl xl:block" :class="textClasses">
-            <slot name="name"></slot>
+            <slot name="name"/>
         </div>
 
 </nuxt-link>
