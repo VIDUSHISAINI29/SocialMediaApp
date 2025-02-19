@@ -24,8 +24,10 @@ const whatsHappening = ref([
     <!-- Preview Card: What's happening  -->
     <SidebarRightPreviewCard class="flex flex-col gap-4 " title="What's Happening">
     <SidebarRightPreviewItem class="text-lg"  v-for="happening in whatsHappening" >
+      <template>
         <h2>{{ happening.title }}</h2>
         <p>{{ happening.count }}</p>
+      </template>
     </SidebarRightPreviewItem>
     </SidebarRightPreviewCard>
     <SidebarRightPreviewCard title="Who to follow"/>
