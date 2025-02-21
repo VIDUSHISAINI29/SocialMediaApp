@@ -35,9 +35,9 @@ const whoToFollowItems = ref([
       image: "https://picsum.photos/200/200",
    },
 ]);
-function handleToggleDarkMode() {
-   emitter.$emit("toggleDarkMode");
-}
+// function handleToggleDarkMode() {
+//    emitter.$emit("toggleDarkMode");
+// }
 </script>
 <template>
    <div class="flex flex-col">
@@ -48,12 +48,12 @@ function handleToggleDarkMode() {
          title="What's Happening">
          <SidebarRightPreviewCardItem
             class="text-lg"
-            v-for="happening in whatsHappening">
+            v-for="(happening, index) in whatsHappening" :key="index">
             <template>
                <h2 class="font-bold text-gray-800 text-md dark:text-white">
                   {{ happening.title }}
                </h2>
-               <p class="text-xs text-gray-400">{{ happening.count }}</p>
+               <p class="text-xs text-gray-400">{{ happening.tweets }}</p>
             </template>
          </SidebarRightPreviewCardItem>
       </SidebarRightPreviewCard>
@@ -63,7 +63,7 @@ function handleToggleDarkMode() {
       <SidebarRightPreviewCard
          class="flex flex-col gap-4"
          title="Who to Follow">
-         <SidebarRightPreviewCardItem v-for="whoToFollow in whoToFollowItems">
+         <SidebarRightPreviewCardItem v-for="(whoToFollow, index) in whoToFollowItems" :key="index">
             <div class="flex flex-row items-center justify-between p-2">
                <div class="flex flex-row">
                   <img
