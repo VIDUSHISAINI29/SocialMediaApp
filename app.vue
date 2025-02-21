@@ -2,12 +2,12 @@
 
 
 
-import LeftSidebar from './server/components/sidebar/left/Index.vue'
-import SidebarRight from './server/components/sidebar/right/Index.vue'
+import LeftSidebar from './components/sidebar/left/index.vue'
+import SidebarRight from './components/sidebar/right/index.vue'
 const darkMode = ref(true);
-function handleOpenTweetModal() {
-  openPostTweetModal(null)
-}
+// function handleOpenTweetModal() {
+//   openPostTweetModal(null)
+// }
 </script>
 
 
@@ -16,7 +16,7 @@ function handleOpenTweetModal() {
       <div class="bg-white dark:bg-black">
           <div  class="min-h-full flex justify-center">
 
-              <div class="grid bg-pink-500 grid-cols-12 w-56  sm:px-6 lg:max-w-7xl lg:px-8 lg:gap-5">
+              <div class="grid bg-pink-500 grid-cols-12 w-60 sm:px-6 lg:max-w-7xl lg:px-8 lg:gap-5">
                   <div class="hidden  p-2 md:block xs:col-span-1 xl:col-span-2">
                     
                       <LeftSidebar />
@@ -24,8 +24,8 @@ function handleOpenTweetModal() {
                   </div>
               </div>
 
-              <main class="col-span-12  bg-red-400 p-2 md:col-span-8 xl:col-span-6">
-                        <!-- <router-view /> -->
+              <main class="col-span-12  bg-red-400 w-[50%] p-2 md:col-span-8 xl:col-span-6">
+                <NuxtPage />
                     </main>
 
                      <!-- Right Sidebar -->

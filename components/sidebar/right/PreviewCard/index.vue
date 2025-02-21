@@ -1,6 +1,7 @@
 
 <script setup>
-import UseTailwindConfig from '~/server/composables/UseTailwindConfig';
+import UseTailwindConfig from '~/composables/UseTailwindConfig';
+
 const { twitterBorderColor, defaultTransition } = UseTailwindConfig()
 
 const props = defineProps({
