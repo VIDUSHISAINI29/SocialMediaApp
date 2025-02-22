@@ -1,7 +1,7 @@
 <script setup>
 import SidebarRightPreviewCard from "./PreviewCard/index.vue";
 import SidebarRightPreviewCardItem from "./PreviewCard/item.vue";
-import useEmitter from "~/composables/UseEmitter";
+import useEmitter from "~/composables/UseEmitter.js";
 const emitter = useEmitter();
 
 const whatsHappening = ref([
