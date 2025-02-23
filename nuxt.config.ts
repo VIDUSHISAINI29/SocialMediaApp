@@ -10,4 +10,8 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  features: {
+    devLogs: false
+    // or 'silent' to allow you to handle yourself with `dev:ssr-logs` hook
+  },
 })

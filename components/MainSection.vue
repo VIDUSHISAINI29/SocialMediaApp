@@ -1,7 +1,7 @@
 
 <script setup>
-import UseTailwindConfig from '~/composables/UseTailwindConfig';
-const { twitterBorderColor } = useTailwindConfig();
+import UseTailwindConfig from '~/composables/UseTailwindConfig.js';
+const { twitterBorderColor } = UseTailwindConfig();
 // const { getTweets } = useTweets()
 
 const loading = ref(false)
