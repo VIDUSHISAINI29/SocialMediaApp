@@ -11,11 +11,13 @@
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
-    "@nuxt/vite-builder": "^3.15.4",
+    "@nuxt/vite-builder": "^0.10.0",
     "@prisma/client": "^6.4.1",
-    "@tailwindcss/vite": "^4.0.6",
+    "@tailwindcss/vite": "^4.0.8",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
     "mitt": "^3.0.1",
-    "nuxt": "^3.15.4",
+    "nuxt": "^3.6.0",
     "tailwindcss": "^4.0.6",
     "vite": "^6.1.0",
     "vue": "latest",
@@ -23,7 +25,9 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.1.0",
+    "@nuxt/types": "^2.18.1",
     "@nuxtjs/tailwindcss": "^6.13.1",
-    "prisma": "^6.4.1"
+    "prisma": "^6.4.1",
+    "typescript": "^5.7.3"
   }
 }
