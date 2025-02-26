@@ -1,9 +1,10 @@
 
 import { getUserByUsername } from "~/server/database/user.js"
-import {generateToken} from "~/server/utils/jwt.js"
+import {generateToken, sendRefreshToken } from "~/server/utils/jwt.js"
 import bcrypt from "bcrypt"
 import {createRefreshToken} from "../../database/refreshToken.js"
 import { userTransformer } from "~/server/transformers/user.js"
+import { sendError } from "h3"
 export default defineEventHandler(async(event) => {
     const body = await readBody(event)
     const {username, password} = body
@@ -36,16 +37,22 @@ if(!doesPasswordMatch){
     }))
 }
 
-// generate tokenToString
-// access token 
-// refresh token 
+// generate tokenToString ( access token & refresh token )
+
 
 const {accessToken, refreshToken} = generateToken(user);
 const token = await createRefreshToken({
     token : refreshToken,
     userId : user.id
 })
-console.log("toe  ", token);
+// console.log("toe  ", token);
+
+
+// add http cookie
+ sendRefreshToken(event, refreshToken)
+
+
+
 
 return{
     access_token : accessToken, user: userTransformer(user)

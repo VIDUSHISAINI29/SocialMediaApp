@@ -1,9 +1,9 @@
-import { userTransformer } from "~~/server/transformers/user"
+// import { userTransformer } from "~~/server/transformers/user"
 
-export default defineEventHandler(async (event) => {
+// export default defineEventHandler(async (event) => {
 
-    return {
-        user: userTransformer(event.context.auth?.user)
-    }
+//     return {
+//         user: userTransformer(event.context.auth?.user)
+//     }
 
-})
+// })
