@@ -2,12 +2,18 @@
 import LeftSidebar from "./components/sidebar/left/index.vue";
 import SidebarRight from "./components/sidebar/right/index.vue";
 import AuthPage from "./components/Auth/Page.vue";
-import useAuthUser from "./composables/useAuth.js";
+// import {useAuthUser, initAuth} from "./composables/useAuth.js";
+import {useAuthUser, initAuth} from "./composables/useAuth.js";
+import { onBeforeMount } from "vue";
 const user = useAuthUser();
 const darkMode = ref(true);
 // function handleOpenTweetModal() {
 //   openPostTweetModal(null)
 // }
+
+onBeforeMount(() => {
+   initAuth()
+})
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 import { sendError, getCookie } from "h3";
-import { decodeRefreshToken } from "../../utils/jwt.js";
+import { decodeRefreshToken, generateToken } from "../../utils/jwt.js";
 import { getRefreshTokenByToken } from "~/server/database/refreshToken.js";
-
+import {getUserById} from "../../database/user.js"
 export default defineEventHandler(async (event) => {
     // console.log("eventy = ", event);
     
@@ -25,6 +25,16 @@ export default defineEventHandler(async (event) => {
     }
 
     const token = decodeRefreshToken(refreshToken);
+    try {
+        const user = getUserById(token.userId);
+        const {accessToken} = generateToken(user)
+        return{
+            access_token : accessToken
+        }
+    } catch (error) {
+        console.log(error);
+        
+    }
     return {
         hello: token
     };

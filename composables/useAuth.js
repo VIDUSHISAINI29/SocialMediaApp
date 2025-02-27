@@ -1,18 +1,18 @@
-export default () => {
-    const useAuthToken = () => useState('auth_token', () => null);
-    const useAuthUser = () => useState('auth_user', () => null);
 
-    const setToken = (newToken) => {
+    export const useAuthToken = () => useState('auth_token', () => null);
+    export const useAuthUser = () => useState('auth_user', () => null);
+
+    export const setToken = (newToken) => {
         const authToken = useAuthToken();
         authToken.value = newToken;
     };
 
-    const setUser = (newUser) => {
+    export const setUser = (newUser) => {
         const authUser = useAuthUser();
         authUser.value = newUser;
     };
 
-    const login = async ({ username, password }) => {
+    export const login = async ({ username, password }) => {
         try {
             const data = await $fetch('http://localhost:3000/api/auth/login', {
                 method: 'POST',
@@ -28,7 +28,7 @@ export default () => {
             return false;
         }
     };
-    const refreshToken = () => {
+    export const refreshToken = () => {
         return new Promise(async (resolve, reject) => {
             try {
                 const data = await $fetch('http://localhost:3000/api/auth/refresh')
@@ -40,20 +40,17 @@ export default () => {
             }
         })
     }
-    const initAuth = () => {
+    export const initAuth = () => {
+        alert("heyy")
         return new Promise(async (resolve, reject) => {
         try {
-            const data = await $fetch('http://localhost:3000/api/auth/refresh')
-            setToken(data.access_token)
+         await $fetch('http://localhost:3000/api/auth/refresh')
+         resolve(true)
+     
         } catch (error) {
             reject(error)
         }
                 })
             }
 
-    return {
-        login,
-        useAuthUser,
-        useAuthToken,
-    };
-};
+ 
