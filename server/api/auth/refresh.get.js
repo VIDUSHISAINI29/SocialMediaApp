@@ -26,7 +26,8 @@ export default defineEventHandler(async (event) => {
 
     const token = decodeRefreshToken(refreshToken);
     try {
-        const user = getUserById(token.userId);
+        console.log('token inside refresh.get.js', token)
+        const user = getUserBy(token.userId);
         const {accessToken} = generateToken(user)
         return{
             access_token : accessToken

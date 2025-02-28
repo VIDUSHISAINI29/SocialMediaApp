@@ -1,8 +1,9 @@
 <script setup>
-import { reactive } from 'vue';
-import useAuth from '~/composables/useAuth.js';
+import { onMounted, reactive } from 'vue';
 import Logo from "../Logo.vue"
+import useAuth from "../../composables/useAuth.js"
 const {login} = useAuth();
+const {useAuthUser} = useAuth();
 const data = reactive({
     username: '',
     password: '',
@@ -10,14 +11,16 @@ const data = reactive({
 });
 
 async function handleLogin(){
-    // data.loading = true
+    data.loading = true
     try {
         await login({
             username: data.username,
             password: data.password
         })
+        console.log("use auth user = ", useAuthUser);
+        
     } catch (error) {
-        console.log(error)
+        console.log('error in frontend login',error)
     }
     finally{
         data.loading = false;
@@ -27,10 +30,17 @@ async function handleLogin(){
 // const isButtonDisabled =  computed(() => {
 //      return (!data.username || !data.password) || data.loading
 // })
+onMounted(() => {
+    console.log(login);
+    
+})
 
 </script>
 
 <template>
+<!-- 
+<client-only>
+</client-only> -->
 
 <div class="w-full">
         <div class="flex justify-center">

@@ -39,6 +39,7 @@ if(!doesPasswordMatch){
 
 // generate tokenToString ( access token & refresh token )
 
+console.log("user insilde login.js ", user);
 
 const {accessToken, refreshToken} = generateToken(user);
 const token = await createRefreshToken({

@@ -1,13 +1,19 @@
 import jwt from "jsonwebtoken"
 import { setCookie } from "h3";
+// import useRuntimeConfig from "../../nuxt.config.ts"
 
 const generateAccessToken = (user) => {
-    const config = useRuntimeConfig()
-    return jwt.sign({userId: user.id}, config.jwtAccessSecret,{
-        expiresIn: '10m'
-    }
-    );
-}
+    const config = useRuntimeConfig();
+    const payload = { userId: user.id };
+    
+    console.log("Payload before signing:", payload); // Debugging step
+
+    return jwt.sign(payload, config.jwtAccessSecret, {
+        algorithm: "HS256",  // Explicitly set signing algorithm
+        expiresIn: "1h",
+    });
+};
+
 const generateRefrestToken = (user) => {
     const config = useRuntimeConfig()
     return jwt.sign({userId: user.id}, config.jwtRefreshSecret,{
@@ -21,6 +27,18 @@ export const decodeRefreshToken = (token) => {
     try {
         return jwt.verify(token, config.jwtRefreshSecret);
     } catch (error) {
+        return null
+    }
+}
+export const decodeAccessToken = (token) => {
+    console.log('token inside docde = ', token)
+    const config = useRuntimeConfig();
+    try {
+        return jwt.verify(token, config.jwtAccessSecret);
+
+    } catch (error) {
+        console.log(error.message);
+        
         return null
     }
 }

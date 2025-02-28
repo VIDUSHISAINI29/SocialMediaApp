@@ -2,7 +2,9 @@
 import AuthForm from "./Form.vue"
 </script>
 <template>
-    <div class="flex h-screen">
+
+
+<div class="flex h-screen">
         <div class="relative flex-1 hidden w-0 lg:block">
             <img class="absolute inset-0 object-cover w-full h-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS46IBFgQeRzloxkV3ZF23h8wVLpbwuevCcKg&s" alt="">
         </div>
@@ -15,6 +17,11 @@ import AuthForm from "./Form.vue"
 
 </div>
     </div>
+
+    <!-- <client-only>
+    
+    </client-only> -->
+   
 
 </template>
 
