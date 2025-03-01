@@ -46,16 +46,18 @@ const whoToFollowItems = ref([
       <SidebarRightPreviewCard
          class="flex flex-col gap-4"
          title="What's Happening">
-         <SidebarRightPreviewCardItem
-            class="text-lg"
-            v-for="(happening, index) in whatsHappening" :key="index">
-            <template>
-               <h2 class="font-bold text-gray-800 text-md dark:text-white">
-                  {{ happening.title }}
-               </h2>
-               <p class="text-xs text-gray-400">{{ happening.tweets }}</p>
-            </template>
-         </SidebarRightPreviewCardItem>
+       <SidebarRightPreviewCardItem
+   class="text-lg"
+   v-for="(happening, index) in whatsHappening" 
+   :key="index">
+   <div>
+      <h2 class="font-bold text-gray-800 text-md dark:text-white">
+         {{ happening.title }}
+      </h2>
+      <p class="text-xs text-gray-400">{{ happening.tweets }}</p>
+   </div>
+</SidebarRightPreviewCardItem>
+
       </SidebarRightPreviewCard>
 
       <!-- Preview Card : Who to follow -->

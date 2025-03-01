@@ -1,14 +1,23 @@
 <script setup>
+import { onMounted } from "vue";
 import MainSection from "../components/MainSection.vue";
+import useAuth from "~/composables/useAuth.js";
+const {useAuthUser} = useAuth();
 const loading = ref(false);
+const user = useAuthUser()
+onMounted(() => {
+   console.log('user at index.vue of pages/ =',user)
+})
 </script>
 
 <template>
+ 
+<client-only>
    <div>
-  <client-only>
-   <MainSection  title="Home" :loading="loading">
-
+      <MainSection  title="Home" :loading="loading">
+{{ user }}
+<h1>VidushiSaini</h1>
 </MainSection>
-  </client-only>
-   </div>
+</div>
+</client-only>
 </template>

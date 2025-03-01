@@ -25,9 +25,9 @@ console.log('decodec = ',decoded)
         }))
     }
     try {
-        // const userId = decoded.userId
-        // const user = await getUserById(userId)
-        // event.context.auth = {user}
+        const userId = decoded.userId
+        const user = await getUserById(userId)
+        event.context.auth = {user}
     } catch (error) {
         console.log('error in middleware auth.js',error);
         

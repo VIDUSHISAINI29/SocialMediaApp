@@ -53,7 +53,7 @@ export const  generateToken =  (user) => {
 }
 
 export const sendRefreshToken = (event, token) => {
-    console.log("event = ",event)
+    // console.log("event = ",event)
     setCookie(event, "refresh_token", token, {
         httpOnly: true,
         secure: true,  // Use secure in production (HTTPS required)

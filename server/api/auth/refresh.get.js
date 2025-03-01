@@ -5,7 +5,7 @@ import {getUserById} from "../../database/user.js"
 export default defineEventHandler(async (event) => {
     // console.log("eventy = ", event);
     
-    const refreshToken = getCookie(event, "refresh_token"); // Get specific cookie
+    const refreshToken =  getCookie(event, "refresh_token"); // Get specific cookie
     console.log("refresh_token", refreshToken);
     
     if (!refreshToken) {
@@ -16,6 +16,7 @@ export default defineEventHandler(async (event) => {
     }
 
     const rToken = await getRefreshTokenByToken(refreshToken);
+console.log("rToken = ", rToken);
 
     if (!rToken) {
         return sendError(event, createError({
@@ -26,8 +27,9 @@ export default defineEventHandler(async (event) => {
 
     const token = decodeRefreshToken(refreshToken);
     try {
-        console.log('token inside refresh.get.js', token)
-        const user = getUserBy(token.userId);
+        console.log('token inside refresh.get.js', token.userId)
+        const user = await getUserById(token.userId);
+        console.log('user inside refresh.get.js', user)
         const {accessToken} = generateToken(user)
         return{
             access_token : accessToken
