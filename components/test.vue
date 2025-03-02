@@ -1,97 +1,51 @@
+
 <script setup>
-import Logo from "../../Logo.vue";
-import SidebarLeftTab from "./Tab.vue"; // Ensure this file exists
-import { 
-  HashtagIcon, HomeIcon, BellIcon, InboxIcon, 
-  BookmarkIcon, DocumentTextIcon, UserIcon, DotsCircleHorizontalIcon
-} from "@heroicons/vue/outline";
+import UseTailwindConfig from '~/composables/UseTailwindConfig.js';
+const { twitterBorderColor } = UseTailwindConfig();
+// const { getTweets } = useTweets()
+
+const loading = ref(false)
+// const homeTweets = ref([])
+// const { useAuthUser } = useAuth()
+
+// const user = useAuthUser()
+
+// onBeforeMount(async () => {
+//     loading.value = true
+//     try {
+//         const { tweets } = await getTweets()
+
+//         homeTweets.value = tweets
+//     } catch (error) {
+//         console.log(error)
+//     } finally {
+//         loading.value = false
+//     }
+// })
+
+// function handleFormSuccess(tweet) {
+//     navigateTo({
+//         path: `/status/${tweet.id}`
+//     })
+// }
+
 </script>
 
+
 <template>
-  <client-only>
-    <div class="p-1 bg-yellow-500 hidden md:block xs:col-span-1 xl:col-span-2">
-      
-      <div class="hover:bg-blue-50 w-16 h-16 hover:rounded-[50%] transition-all duration-300">
-        <nuxt-link to="/">
-          <div class="sticky top-0">
-            <Logo />
-          </div>
-        </nuxt-link>
-      </div>
+    <div>
+        <MainSection title="Home" :loading="loading">
 
-      <div class="mt-2 space-y-3">
-        <SidebarLeftTab>
-          <template #icon>
-            <HomeIcon />
-          </template>
-          <template #name>
-            Home
-          </template>
-        </SidebarLeftTab>
+            <!-- <Head>
+                <Title>Home / Twitter</Title>
+            </Head> -->
 
-        <SidebarLeftTab>
-          <template #icon>
-            <HashtagIcon />
-          </template>
-          <template #name>
-            Explore
-          </template>
-        </SidebarLeftTab>
+            <!-- <div class="border-b" :class="twitterBorderColor">
+                <TweetForm :user="user" @on-success="handleFormSuccess" />
+            </div> -->
 
-        <SidebarLeftTab>
-          <template #icon>
-            <BellIcon />
-          </template>
-          <template #name>
-            Notifications
-          </template>
-        </SidebarLeftTab>
+            <!-- <TweetListFeed :tweets="homeTweets" /> -->
 
-        <SidebarLeftTab>
-          <template #icon>
-            <InboxIcon />
-          </template>
-          <template #name>
-            Messages
-          </template>
-        </SidebarLeftTab>
-
-        <SidebarLeftTab>
-          <template #icon>
-            <BookmarkIcon />
-          </template>
-          <template #name>
-            Bookmarks
-          </template>
-        </SidebarLeftTab>
-
-        <SidebarLeftTab>
-          <template #icon>
-            <DocumentTextIcon />
-          </template>
-          <template #name>
-            Lists
-          </template>
-        </SidebarLeftTab>
-
-        <SidebarLeftTab>
-          <template #icon>
-            <UserIcon />
-          </template>
-          <template #name>
-            Profile
-          </template>
-        </SidebarLeftTab>
-
-        <SidebarLeftTab>
-          <template #icon>
-            <DotsCircleHorizontalIcon />
-          </template>
-          <template #name>
-            More
-          </template>
-        </SidebarLeftTab> 
-      </div>
+        </MainSection>
     </div>
-  </client-only>
 </template>
