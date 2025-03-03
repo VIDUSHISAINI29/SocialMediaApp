@@ -5,8 +5,8 @@ import {getUserById} from "../../database/user.js"
 export default defineEventHandler(async (event) => {
     // console.log("eventy = ", event);
     
-    const refreshToken =  getCookie(event, "refresh_token"); // Get specific cookie
-    console.log("refresh_token", refreshToken);
+    const refreshToken = getCookie(event, "refresh_token"); // Get specific cookie
+    console.log("refresh_token = ", refreshToken);
     
     if (!refreshToken) {
         return sendError(event, createError({

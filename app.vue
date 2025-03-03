@@ -55,7 +55,7 @@ onMounted(() => {
             </div>
          </div>
 
-         <!-- <AuthPage v-else /> -->
+         <AuthPage v-else />
       </div>
    </div>
 </template>

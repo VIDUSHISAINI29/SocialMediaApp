@@ -11,13 +11,13 @@ onMounted(() => {
 </script>
 
 <template>
- 
-<client-only>
-   <div>
+  <div>
       <MainSection  title="Home" :loading="loading">
 {{ user }}
 <h1>VidushiSaini</h1>
 </MainSection>
 </div>
-</client-only>
+<!-- <client-only>
+  
+</client-only> -->
 </template>

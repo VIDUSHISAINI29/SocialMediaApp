@@ -1,4 +1,4 @@
-import useFetchApi from "./useFetchApi";
+import useFetchApi from "./useFetchApi.js";
 
   export default () => {
      const useAuthToken = () => useState('auth_token', () => null);
@@ -20,7 +20,7 @@ import useFetchApi from "./useFetchApi";
 
      const login = async ({ username, password }) => {
         try {
-            const data = await useFetchApi('http://localhost:3000/api/auth/login', {
+            const data = await $fetch('http://localhost:3000/api/auth/login', {
                 method: 'POST',
                 body: { username, password },
             });
@@ -35,22 +35,30 @@ import useFetchApi from "./useFetchApi";
             return false;
         }
     };
-     const refreshToken = () => {
+    const refreshToken = () => {
         return new Promise(async (resolve, reject) => {
             try {
-                const data = await useFetchApi('http://localhost:3000/api/auth/refresh')
-
-                setToken(data.access_token)
-                resolve(true)
+                const { data } = await $fetch("http://localhost:3000/api/auth/refresh", {
+                    method: "GET",
+                    credentials: "include", // ✅ Ensures cookies are sent
+                });
+    
+                if (data?.access_token) {
+                    setToken(data.access_token);
+                    resolve(true);
+                } else {
+                    reject(new Error("No access token received"));
+                }
             } catch (error) {
-                reject(error)
+                reject(error);
             }
-        })
-    }
+        });
+    };
+    
      const getUser = () => {
         return new Promise(async (resolve, reject) => {
             try {
-                const data = await useFetchApi('http://localhost:3000/api/auth/user')
+                const data = await $fetch('http://localhost:3000/api/auth/user')
 
                 setUser(data.user)
                 resolve(true)

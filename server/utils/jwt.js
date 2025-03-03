@@ -60,4 +60,5 @@ export const sendRefreshToken = (event, token) => {
         sameSite: "strict",
         path: "/",
     })
+    return{message: "Cookie sent"}
 }

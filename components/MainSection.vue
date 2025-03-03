@@ -1,14 +1,15 @@
 
 <script setup>
 import UseTailwindConfig from '~/composables/UseTailwindConfig.js';
+import useAuth from '~/composables/useAuth.js';
 const { twitterBorderColor } = UseTailwindConfig();
 // const { getTweets } = useTweets()
 
-const loading = ref(false)
+const loading = ref(false);
 // const homeTweets = ref([])
-// const { useAuthUser } = useAuth()
+const { useAuthUser } = useAuth()
 
-// const user = useAuthUser()
+const user = useAuthUser()
 
 // onBeforeMount(async () => {
 //     loading.value = true
