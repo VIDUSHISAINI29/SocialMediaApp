@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from "vue";
 import MainSection from "../components/MainSection.vue";
-import useAuth from "~/composables/useAuth.js";
+import useAuth from "../composables/useAuth.js";
 const {useAuthUser} = useAuth();
 const loading = ref(false);
 const user = useAuthUser()

@@ -8,8 +8,7 @@ import {
 </script>
 
 <template>
-  <client-only>
-    <div class="p-1 bg-yellow-500 hidden md:block xs:col-span-1 xl:col-span-2">
+  <div class="p-1  hidden md:block xs:col-span-1 xl:col-span-2">
       
       <div class="hover:bg-blue-50 w-16 h-16 hover:rounded-[50%] transition-all duration-300">
         <nuxt-link to="/">
@@ -93,5 +92,7 @@ import {
         </SidebarLeftTab> 
       </div>
     </div>
-  </client-only>
+  <!-- <client-only>
+    
+  </client-only> -->
 </template>

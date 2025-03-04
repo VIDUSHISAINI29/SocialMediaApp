@@ -3,7 +3,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: '2025-02-25',
-  pages: true,
+  pages: false,
   devtools: { enabled: true },
   css: ['./assets/main.css'],
   vite: {
@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     ],
   },
   features: {
-    devLogs: false
+    devLogs: false,
     // or 'silent' to allow you to handle yourself with `dev:ssr-logs` hook
   },
   runtimeConfig: {

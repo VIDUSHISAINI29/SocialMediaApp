@@ -1,7 +1,7 @@
 
 <script setup>
-import UseTailwindConfig from '~/composables/UseTailwindConfig.js';
-import useAuth from '~/composables/useAuth.js';
+import UseTailwindConfig from '../composables/UseTailwindConfig.js';
+import useAuth from '../composables/useAuth.js';
 const { twitterBorderColor } = UseTailwindConfig();
 // const { getTweets } = useTweets()
 

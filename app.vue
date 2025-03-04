@@ -34,16 +34,16 @@ onMounted(() => {
  <LoadingPage v-if="isAuthLoading" />
          <div v-else-if="user" class="min-h-full flex justify-center">
             <div
-               class="grid bg-pink-500 grid-cols-12 w-60 sm:px-6 lg:max-w-7xl lg:px-8 lg:gap-5">
+               class="grid grid-cols-12 w-60 sm:px-6 lg:max-w-7xl lg:px-8 lg:gap-5">
                <div class="hidden p-2 md:block xs:col-span-1 xl:col-span-2">
                   <LeftSidebar />
-                  <div class="p-3 bg-green-950"></div>
+                  
                </div>
             </div>
 
             <main
-               class="col-span-12 bg-red-400 w-[50%] p-2 md:col-span-8 xl:col-span-6">
-               <NuxtPage />
+               class="col-span-12  w-[50%] p-2 md:col-span-8 xl:col-span-6">
+               <NuxtPage></NuxtPage>
             </main>
 
             <!-- Right Sidebar -->
