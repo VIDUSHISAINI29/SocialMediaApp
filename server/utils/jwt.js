@@ -14,7 +14,7 @@ const generateAccessToken = (user) => {
     });
 };
 
-const generateRefrestToken = (user) => {
+const generateRefreshToken = (user) => {
     const config = useRuntimeConfig()
     return jwt.sign({userId: user.id}, config.jwtRefreshSecret,{
         expiresIn: '4h'
@@ -45,7 +45,7 @@ export const decodeAccessToken = (token) => {
 
 export const  generateToken =  (user) => {
     const accessToken =   generateAccessToken(user);
-    const refreshToken =  generateRefrestToken(user);
+    const refreshToken =  generateRefreshToken(user);
     return{
         accessToken ,
         refreshToken,

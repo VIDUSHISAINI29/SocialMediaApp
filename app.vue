@@ -43,7 +43,7 @@ onMounted(() => {
 
             <main
                class="col-span-12  w-[50%] p-2 md:col-span-8 xl:col-span-6">
-               <NuxtPage></NuxtPage>
+               <NuxtPage/>
             </main>
 
             <!-- Right Sidebar -->

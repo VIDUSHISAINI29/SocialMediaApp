@@ -1,5 +1,5 @@
 <script setup>
-import UseTailwindConfig from '~/composables/UseTailwindConfig.js';
+import UseTailwindConfig from '../../../composables/UseTailwindConfig.js';
 const { defaultTransition } = UseTailwindConfig();
 const props = defineProps({
     active:{

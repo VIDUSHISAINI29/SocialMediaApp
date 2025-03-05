@@ -17,7 +17,4 @@ onMounted(() => {
 <h1>VidushiSaini</h1>
 </MainSection>
 </div>
-<!-- <client-only>
-  
-</client-only> -->
 </template>
